@@ -22,3 +22,7 @@ The memory/persistence will be provided by an install of Red Hat Data Grid. This
 
 Additional services will be provided for a dashboard for the system based on the state stored in the Data Grid. This state will be the working data and experiment results.
 
+# Notes
+To get the u/p for access to the Infinispan by default use:
+
+oc get secret infinispan-generated-secret -o jsonpath="{.data.identities\.yaml}" | base64 --decode

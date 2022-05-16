@@ -1,0 +1,15 @@
+oc get secret infinispan-generated-secret -o jsonpath="{.data.identities\.yaml}" | base64 --decode
+
+(Adding and testing for data)
+
+sh-5.0$ curl -k -X POST -u developer:yqDVtkqPECriaLRi https://infinispan:11222/rest/v2/caches/default
+sh-5.0$ curl -k -X POST -u developer:yqDVtkqPECriaLRi -H 'Content-type: text/plain' -d 'world' https://infinispan:11222/rest/v2/caches/default/hello
+sh-5.0$ curl -k -X GET -u developer:yqDVtkqPECriaLRi https://infinispan:11222/rest/v2/caches/default/hello
+
+(Insecure mode, using insecuregrid.yaml)
+
+curl -X POST http://kneuralgrid:11222/rest/v2/caches/neuralnet
+curl -X POST -H 'Content-type: text/plain' -d 'world' http://kneuralgrid:11222/rest/v2/caches/neuralnet/hello
+curl -X GET http://kneuralgrid:11222/rest/v2/caches/neuralnet/hello
+
+curl --digest -k -L -D - "https://infinispan:11222/rest/v2/cache/neuralcache" --header "Content-Type: application/json" -u "developer:NQFcLwsEVBUWFtLK" --verbose

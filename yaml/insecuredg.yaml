@@ -1,0 +1,12 @@
+apiVersion: infinispan.org/v1
+kind: Infinispan
+metadata:
+  name: kneuralgrid
+spec:
+  service:
+    type: DataGrid
+  replicas: 2
+  security:
+    endpointAuthentication: false
+    endpointEncryption:
+      type: None
