@@ -1,4 +1,10 @@
+(Quarkus build to OCP)
+./mvnw clean package -Dquarkus.kubernetes.deploy=true
+
 oc get secret infinispan-generated-secret -o jsonpath="{.data.identities\.yaml}" | base64 --decode
+
+(Example call to add data)
+http://gridconnect-insecuretest.apps.bloomfield.demolab.local/grid/add?cache=testcache5&key=entry1&value=hello%20world
 
 (Adding and testing for data)
 
