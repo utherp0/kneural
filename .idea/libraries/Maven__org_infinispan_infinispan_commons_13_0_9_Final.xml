@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.infinispan:infinispan-commons:13.0.9.Final">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/infinispan/infinispan-commons/13.0.9.Final/infinispan-commons-13.0.9.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/infinispan/infinispan-commons/13.0.9.Final/infinispan-commons-13.0.9.Final-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/infinispan/infinispan-commons/13.0.9.Final/infinispan-commons-13.0.9.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -26,6 +26,59 @@ public class GridConnector
     return "CALL RECV";
   }
 
+  @Path("fetch")
+  @GET@Produces(MediaType.TEXT_PLAIN)
+  public String fetchEntryFromCache(@QueryParam("cache") String cacheName, @QueryParam("key") String key )
+  {
+    // Build the composite target for the addition GET
+    // Example = http://kneuralgrid:11222/rest/v2/caches/neuralnet
+    String target = "http://" + _cacheService + ":11222/rest/v2/caches/" + cacheName + "/" + key;
+
+    try
+    {
+      System.out.println( "Fetching value from " + target );
+
+      URL url = new URL( target );
+      HttpURLConnection getConnection = (HttpURLConnection)url.openConnection();
+
+      getConnection.setRequestMethod( "GET" );
+      getConnection.setRequestProperty( "Content-Type", "application/json" );
+
+      getConnection.setDoOutput(true);
+
+      int responseCode = getConnection.getResponseCode();
+
+      System.out.println( responseCode + " from " + target );
+
+      // If the response is 200 grab the data
+      if( responseCode == 200 )
+      {
+        BufferedReader in = new BufferedReader( new InputStreamReader(getConnection.getInputStream()));
+        String inputLine;
+        StringBuffer content = new StringBuffer();
+
+        while ((inputLine = in.readLine()) != null) {
+          content.append(inputLine);
+        }
+
+        in.close();
+
+        System.out.println( "Recv: " + content.toString());
+
+        // Return response code and data
+        return content.toString();
+      }
+
+      return "RESPONSE " + responseCode;
+    }
+    catch( Exception exc )
+    {
+      System.out.println( "GET failure in caches fetch : " + exc.toString());
+
+      return exc.toString();
+    }
+  }
+
   @Path("add")
   @GET
   @Produces(MediaType.TEXT_PLAIN)

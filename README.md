@@ -22,6 +22,22 @@ The memory/persistence will be provided by an install of Red Hat Data Grid. This
 
 Additional services will be provided for a dashboard for the system based on the state stored in the Data Grid. This state will be the working data and experiment results.
 
+# Architecture
+The system will be comprised of three main specialised components:
+
+(Memory) is provided by a resident instance of Infinispan/Red Hat Data Grid hosted on OCP
+(GridConnector) is a resident Quarkus app that provides config driven handles into the grid; these are endpoints for fetching and updating the memory components
+for the neurons. This is resident to allow the Neurons to work event driven; this is the persistence point for memory
+(Neurons) are event based knative non-resident Quarkus functions for performing threshold based behaviours; they are created by a trigger based on an event type,
+then fetch the ID based memory state via the GridConnector, perform their internal behaviour (which may result in a change to the memory). If the memory
+changes the memory is updated via the GridConnector. If the threshold is exceeded for the neuron (this is an internal algorithm) the Neuron will emit a
+Cloud Event
+
+The system uses the following standard functionality provided via knative:
+
+(Cloud Event/Broker) The system uses a broker which marshals and issues Cloud Events based on type. These events are linked to triggers for
+the neurons. The neurons themselves can emit Cloud Events back to the broker, which in turn can trigger other neurons (or self feedback)
+
 # Notes
 To get the u/p for access to the Infinispan by default use:
 
