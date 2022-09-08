@@ -16,6 +16,8 @@ import javax.inject.Inject;
 import java.net.*;
 import java.util.*;
 
+import org.uth.neurons.currency.*;
+
 public class Test1
 {
   private long _start = System.currentTimeMillis();
@@ -40,7 +42,7 @@ public class Test1
     System.out.println("Received: " + input );
 
     // Perform Neuron processing
-    MeuronOutput output = new NeuronOutput();
+    NeuronOutput output = new NeuronOutput();
 
     output.setPayload( "{'payload','some stuff'}" );
     emitter.complete(output);
