@@ -1,0 +1,30 @@
+specVersion: 0.25.0
+name: neuronfunction-test1
+namespace: serverlessdemo
+runtime: quarkus
+registry: ""
+image: image-registry.openshift-image-registry.svc:5000/serverlessdemo/neuronfunction-test1:latest
+imageDigest: sha256:d01cf976029ae37d5c66e0fe92b91f48103e08696e505a141a06ab3d76210301
+build: ""
+git: {}
+buildpacks: []
+builder: pack
+volumes: []
+buildEnvs:
+- name: BP_NATIVE_IMAGE
+  value: "false"
+- name: BP_MAVEN_BUILT_ARTIFACT
+  value: func.yaml target/quarkus-app/lib/ target/quarkus-app/*.jar target/quarkus-app/app/
+    target/quarkus-app/quarkus/
+- name: BP_MAVEN_BUILD_ARGUMENTS
+  value: package -DskipTests=true -Dmaven.javadoc.skip=true -Dquarkus.package.type=fast-jar
+- name: MAVEN_S2I_ARTIFACT_DIRS
+  value: target/quarkus-app
+- name: S2I_SOURCE_DEPLOYMENTS_FILTER
+  value: lib quarkus-run.jar app quarkus
+envs: []
+annotations: {}
+options: {}
+labels: []
+healthEndpoints: {}
+created: 2022-09-08T08:20:05.770211397Z

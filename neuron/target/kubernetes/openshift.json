@@ -1,0 +1,172 @@
+[{
+  "apiVersion" : "v1",
+  "kind" : "Service",
+  "metadata" : {
+    "annotations" : {
+      "app.openshift.io/vcs-url" : "<<unknown>>",
+      "app.quarkus.io/commit-id" : "c5a09eb754bc6fa67e7c3f5c86df39be9d2f95b7",
+      "app.quarkus.io/build-timestamp" : "2022-09-08 - 09:53:20 +0000"
+    },
+    "labels" : {
+      "app.kubernetes.io/name" : "neuron",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
+      "app.openshift.io/runtime" : "quarkus"
+    },
+    "name" : "neuron"
+  },
+  "spec" : {
+    "ports" : [ {
+      "name" : "http",
+      "port" : 80,
+      "targetPort" : 8080
+    } ],
+    "selector" : {
+      "app.kubernetes.io/name" : "neuron",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT"
+    },
+    "type" : "ClusterIP"
+  }
+},{
+  "apiVersion" : "image.openshift.io/v1",
+  "kind" : "ImageStream",
+  "metadata" : {
+    "annotations" : {
+      "app.openshift.io/vcs-url" : "<<unknown>>",
+      "app.quarkus.io/commit-id" : "c5a09eb754bc6fa67e7c3f5c86df39be9d2f95b7",
+      "app.quarkus.io/build-timestamp" : "2022-09-08 - 09:53:20 +0000"
+    },
+    "labels" : {
+      "app.kubernetes.io/name" : "neuron",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
+      "app.openshift.io/runtime" : "quarkus"
+    },
+    "name" : "neuron"
+  },
+  "spec" : { }
+},{
+  "apiVersion" : "image.openshift.io/v1",
+  "kind" : "ImageStream",
+  "metadata" : {
+    "labels" : {
+      "app.kubernetes.io/name" : "neuron",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT"
+    },
+    "name" : "openjdk-11"
+  },
+  "spec" : {
+    "dockerImageRepository" : "registry.access.redhat.com/ubi8/openjdk-11"
+  }
+},{
+  "apiVersion" : "build.openshift.io/v1",
+  "kind" : "BuildConfig",
+  "metadata" : {
+    "annotations" : {
+      "app.openshift.io/vcs-url" : "<<unknown>>",
+      "app.quarkus.io/commit-id" : "c5a09eb754bc6fa67e7c3f5c86df39be9d2f95b7",
+      "app.quarkus.io/build-timestamp" : "2022-09-08 - 09:53:20 +0000"
+    },
+    "labels" : {
+      "app.kubernetes.io/name" : "neuron",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
+      "app.openshift.io/runtime" : "quarkus"
+    },
+    "name" : "neuron"
+  },
+  "spec" : {
+    "output" : {
+      "to" : {
+        "kind" : "ImageStreamTag",
+        "name" : "neuron:1.0.0-SNAPSHOT"
+      }
+    },
+    "source" : {
+      "binary" : { }
+    },
+    "strategy" : {
+      "sourceStrategy" : {
+        "from" : {
+          "kind" : "ImageStreamTag",
+          "name" : "openjdk-11:1.11"
+        }
+      }
+    }
+  }
+},{
+  "apiVersion" : "apps.openshift.io/v1",
+  "kind" : "DeploymentConfig",
+  "metadata" : {
+    "annotations" : {
+      "app.openshift.io/vcs-url" : "<<unknown>>",
+      "app.quarkus.io/commit-id" : "c5a09eb754bc6fa67e7c3f5c86df39be9d2f95b7",
+      "app.quarkus.io/build-timestamp" : "2022-09-08 - 09:53:20 +0000"
+    },
+    "labels" : {
+      "app.kubernetes.io/name" : "neuron",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
+      "app.openshift.io/runtime" : "quarkus"
+    },
+    "name" : "neuron"
+  },
+  "spec" : {
+    "replicas" : 1,
+    "selector" : {
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
+      "app.kubernetes.io/name" : "neuron"
+    },
+    "template" : {
+      "metadata" : {
+        "annotations" : {
+          "app.openshift.io/vcs-url" : "<<unknown>>",
+          "app.quarkus.io/commit-id" : "c5a09eb754bc6fa67e7c3f5c86df39be9d2f95b7",
+          "app.quarkus.io/build-timestamp" : "2022-09-08 - 09:53:20 +0000"
+        },
+        "labels" : {
+          "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
+          "app.kubernetes.io/name" : "neuron",
+          "app.openshift.io/runtime" : "quarkus"
+        }
+      },
+      "spec" : {
+        "containers" : [ {
+          "command" : [ "java", "-jar", "/deployments/quarkus-run.jar" ],
+          "env" : [ {
+            "name" : "KUBERNETES_NAMESPACE",
+            "valueFrom" : {
+              "fieldRef" : {
+                "fieldPath" : "metadata.namespace"
+              }
+            }
+          }, {
+            "name" : "CACHESERVICE",
+            "value" : "kneuralgrid"
+          }, {
+            "name" : "CACHENAME",
+            "value" : "testgrid1"
+          }, {
+            "name" : "JAVA_APP_JAR",
+            "value" : "/deployments/neuron-1.0.0-SNAPSHOT-runner.jar"
+          } ],
+          "image" : "uther/neuron:1.0.0-SNAPSHOT",
+          "imagePullPolicy" : "Always",
+          "name" : "neuron",
+          "ports" : [ {
+            "containerPort" : 8080,
+            "name" : "http",
+            "protocol" : "TCP"
+          } ]
+        } ]
+      }
+    },
+    "triggers" : [ {
+      "imageChangeParams" : {
+        "automatic" : true,
+        "containerNames" : [ "neuron" ],
+        "from" : {
+          "kind" : "ImageStreamTag",
+          "name" : "neuron:1.0.0-SNAPSHOT"
+        }
+      },
+      "type" : "ImageChange"
+    } ]
+  }
+}]
