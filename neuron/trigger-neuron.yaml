@@ -12,5 +12,5 @@ spec:
     ref:
      apiVersion: serving.knative.dev/v1
      kind: Service
-     name: neuron-01
+     name: neuronfunction-test1
 

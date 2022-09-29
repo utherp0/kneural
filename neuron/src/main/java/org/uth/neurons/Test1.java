@@ -45,6 +45,9 @@ public class Test1
     NeuronOutput output = new NeuronOutput();
 
     output.setPayload( "{'payload','some stuff'}" );
+
+    System.out.println( "Generating: " + output.getPayload() );
+
     emitter.complete(output);
   }
 }
