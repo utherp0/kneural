@@ -3,8 +3,8 @@
   "kind" : "Service",
   "metadata" : {
     "annotations" : {
-      "app.quarkus.io/commit-id" : "c5a09eb754bc6fa67e7c3f5c86df39be9d2f95b7",
-      "app.quarkus.io/build-timestamp" : "2022-09-08 - 09:53:20 +0000"
+      "app.quarkus.io/commit-id" : "c557da607b6f7f4c122c00473c317fe3ce1c8a49",
+      "app.quarkus.io/build-timestamp" : "2022-09-29 - 12:07:06 +0000"
     },
     "labels" : {
       "app.kubernetes.io/name" : "neuron",
@@ -29,8 +29,8 @@
   "kind" : "Deployment",
   "metadata" : {
     "annotations" : {
-      "app.quarkus.io/commit-id" : "c5a09eb754bc6fa67e7c3f5c86df39be9d2f95b7",
-      "app.quarkus.io/build-timestamp" : "2022-09-08 - 09:53:20 +0000"
+      "app.quarkus.io/commit-id" : "c557da607b6f7f4c122c00473c317fe3ce1c8a49",
+      "app.quarkus.io/build-timestamp" : "2022-09-29 - 12:07:06 +0000"
     },
     "labels" : {
       "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
@@ -49,8 +49,8 @@
     "template" : {
       "metadata" : {
         "annotations" : {
-          "app.quarkus.io/commit-id" : "c5a09eb754bc6fa67e7c3f5c86df39be9d2f95b7",
-          "app.quarkus.io/build-timestamp" : "2022-09-08 - 09:53:20 +0000"
+          "app.quarkus.io/commit-id" : "c557da607b6f7f4c122c00473c317fe3ce1c8a49",
+          "app.quarkus.io/build-timestamp" : "2022-09-29 - 12:07:06 +0000"
         },
         "labels" : {
           "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
@@ -73,12 +73,36 @@
           } ],
           "image" : "uther/neuron:1.0.0-SNAPSHOT",
           "imagePullPolicy" : "Always",
+          "livenessProbe" : {
+            "failureThreshold" : 3,
+            "httpGet" : {
+              "path" : "/health/liveness",
+              "port" : 8080,
+              "scheme" : "HTTP"
+            },
+            "initialDelaySeconds" : 0,
+            "periodSeconds" : 30,
+            "successThreshold" : 1,
+            "timeoutSeconds" : 10
+          },
           "name" : "neuron",
           "ports" : [ {
             "containerPort" : 8080,
             "name" : "http",
             "protocol" : "TCP"
-          } ]
+          } ],
+          "readinessProbe" : {
+            "failureThreshold" : 3,
+            "httpGet" : {
+              "path" : "/health/readiness",
+              "port" : 8080,
+              "scheme" : "HTTP"
+            },
+            "initialDelaySeconds" : 0,
+            "periodSeconds" : 30,
+            "successThreshold" : 1,
+            "timeoutSeconds" : 10
+          }
         } ]
       }
     }

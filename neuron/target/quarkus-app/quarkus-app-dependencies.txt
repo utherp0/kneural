@@ -6,6 +6,7 @@ com.fasterxml.jackson.core:jackson-databind::jar:2.13.3
 com.fasterxml.jackson.datatype:jackson-datatype-jdk8::jar:2.13.3
 com.fasterxml.jackson.datatype:jackson-datatype-jsr310::jar:2.13.3
 com.fasterxml.jackson.module:jackson-module-parameter-names::jar:2.13.3
+com.googlecode.json-simple:json-simple::jar:1.1
 io.github.crac:org-crac::jar:0.1.1
 io.netty:netty-buffer::jar:4.1.78.Final
 io.netty:netty-codec-dns::jar:4.1.78.Final
@@ -35,6 +36,7 @@ io.quarkus:quarkus-funqy-http::jar:2.11.2.Final
 io.quarkus:quarkus-funqy-knative-events::jar:2.11.2.Final
 io.quarkus:quarkus-funqy-server-common::jar:2.11.2.Final
 io.quarkus:quarkus-jackson::jar:2.11.2.Final
+io.quarkus:quarkus-jsonp::jar:2.11.2.Final
 io.quarkus:quarkus-kubernetes-client-internal::jar:2.11.2.Final
 io.quarkus:quarkus-kubernetes::jar:2.11.2.Final
 io.quarkus:quarkus-mutiny::jar:2.11.2.Final
@@ -42,6 +44,7 @@ io.quarkus:quarkus-netty::jar:2.11.2.Final
 io.quarkus:quarkus-openshift::jar:2.11.2.Final
 io.quarkus:quarkus-security-runtime-spi::jar:2.11.2.Final
 io.quarkus:quarkus-smallrye-context-propagation::jar:2.11.2.Final
+io.quarkus:quarkus-smallrye-health::jar:2.11.2.Final
 io.quarkus:quarkus-vertx-http-dev-console-runtime-spi::jar:2.11.2.Final
 io.quarkus:quarkus-vertx-http::jar:2.11.2.Final
 io.quarkus:quarkus-vertx-latebound-mdc-provider::jar:2.11.2.Final
@@ -70,6 +73,9 @@ io.smallrye:smallrye-context-propagation-api::jar:1.2.2
 io.smallrye:smallrye-context-propagation-storage::jar:1.2.2
 io.smallrye:smallrye-context-propagation::jar:1.2.2
 io.smallrye:smallrye-fault-tolerance-vertx::jar:5.5.0
+io.smallrye:smallrye-health-api::jar:3.2.1
+io.smallrye:smallrye-health-provided-checks::jar:3.2.1
+io.smallrye:smallrye-health::jar:3.2.1
 io.vertx:vertx-auth-common::jar:4.3.2
 io.vertx:vertx-bridge-common::jar:4.3.2
 io.vertx:vertx-codegen::jar:4.3.2
@@ -85,6 +91,8 @@ jakarta.interceptor:jakarta.interceptor-api::jar:1.2.5
 jakarta.transaction:jakarta.transaction-api::jar:1.3.3
 org.eclipse.microprofile.config:microprofile-config-api::jar:2.0.1
 org.eclipse.microprofile.context-propagation:microprofile-context-propagation-api::jar:1.2
+org.eclipse.microprofile.health:microprofile-health-api::jar:3.1
+org.glassfish:jakarta.json::jar:1.1.6
 org.graalvm.sdk:graal-sdk::jar:22.1.0
 org.jboss.logging:jboss-logging-annotations::jar:2.2.1.Final
 org.jboss.logging:jboss-logging::jar:3.5.0.Final
