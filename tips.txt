@@ -1,6 +1,8 @@
 (Quarkus build to OCP)
 ./mvnw clean package -Dquarkus.kubernetes.deploy=true
 
+Use "sudo -i" on the funcbuilder
+
 oc get secret infinispan-generated-secret -o jsonpath="{.data.identities\.yaml}" | base64 --decode
 
 (Example call to add data)
