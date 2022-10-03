@@ -1,0 +1,16 @@
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: trigger-neuron03
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: neuron03event
+  subscriber:
+    ref:
+     apiVersion: serving.knative.dev/v1
+     kind: Service
+     name: neuron03
+

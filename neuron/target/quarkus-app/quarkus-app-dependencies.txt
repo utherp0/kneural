@@ -2,7 +2,7 @@ com.aayushatharva.brotli4j:brotli4j::jar:1.7.1
 com.aayushatharva.brotli4j:native-osx-x86_64::jar:1.7.1
 com.fasterxml.jackson.core:jackson-annotations::jar:2.13.3
 com.fasterxml.jackson.core:jackson-core::jar:2.13.3
-com.fasterxml.jackson.core:jackson-databind::jar:2.13.3
+com.fasterxml.jackson.core:jackson-databind::jar:2.13.4
 com.fasterxml.jackson.datatype:jackson-datatype-jdk8::jar:2.13.3
 com.fasterxml.jackson.datatype:jackson-datatype-jsr310::jar:2.13.3
 com.fasterxml.jackson.module:jackson-module-parameter-names::jar:2.13.3

@@ -1,12 +1,13 @@
 package org.uth.neurons;
 
-import io.quarkus.funqy.Context;
+//import io.quarkus.funqy.Context;
 import io.quarkus.funqy.Funq;
 import io.quarkus.funqy.knative.events.CloudEvent;
-import io.quarkus.funqy.knative.events.CloudEventMapping;
-import io.smallrye.mutiny.Uni;
-import io.smallrye.mutiny.subscription.UniEmitter;
-import io.vertx.core.Vertx;
+//import io.quarkus.funqy.knative.events.CloudEventMapping;
+import io.quarkus.funqy.knative.events.CloudEventBuilder;
+//import io.smallrye.mutiny.Uni;
+//import io.smallrye.mutiny.subscription.UniEmitter;
+//import io.vertx.core.Vertx;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import org.json.simple.*;
@@ -22,32 +23,24 @@ public class Test1
 {
   private long _start = System.currentTimeMillis();
 
-  @Inject
-  Vertx vertx;
-
   // Use @ConfigProperty to inject ENVs here
+  @ConfigProperty(name="NEURONID")
+  String _neuronID;
 
   @Funq
-  @CloudEventMapping(responseType = "neuronevent")
-  public Uni<NeuronOutput> function( Object input, @Context CloudEvent cloudEvent )
+  public CloudEvent<NeuronOutput> function( CloudEvent<NeuronInput> cloudEvent )
   {
-    return Uni.createFrom().emitter( emitter ->
-    {
-      buildResponse( input, cloudEvent, emitter );
-    });
-  }
+    NeuronInput input = cloudEvent.data();
 
-  public void buildResponse( Object input, CloudEvent cloudEvent, UniEmitter<? super NeuronOutput> emitter )
-  {
-    System.out.println("Received: " + input );
+    System.out.println( "RECV: " + cloudEvent.type() + " " + cloudEvent.toString() );
 
-    // Perform Neuron processing
     NeuronOutput output = new NeuronOutput();
+    output.setPayload( "RECV: " + _start );
 
-    output.setPayload( "{'payload','some stuff'}" );
-
-    System.out.println( "Generating: " + output.getPayload() );
-
-    emitter.complete(output);
+    return CloudEventBuilder.create()
+             .source(_neuronID )
+             .type(input.targetEvent)
+             .id(UUID.randomUUID().toString())
+             .build(output);
   }
 }
