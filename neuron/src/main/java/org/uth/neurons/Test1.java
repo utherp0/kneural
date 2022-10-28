@@ -1,6 +1,6 @@
 package org.uth.neurons;
 
-//import io.quarkus.funqy.Context;
+import io.quarkus.funqy.Context;
 import io.quarkus.funqy.Funq;
 import io.quarkus.funqy.knative.events.CloudEvent;
 //import io.quarkus.funqy.knative.events.CloudEventMapping;
@@ -28,9 +28,9 @@ public class Test1
   String _neuronID;
 
   @Funq
-  public CloudEvent<NeuronOutput> function( CloudEvent<NeuronInput> cloudEvent )
+  public CloudEvent<NeuronOutput> function( NeuronInput input, @Context CloudEvent<NeuronInput> cloudEvent )
   {
-    NeuronInput input = cloudEvent.data();
+    //NeuronInput input = cloudEvent.data();
 
     System.out.println( "RECV: " + cloudEvent.type() + " " + cloudEvent.toString() );
 
