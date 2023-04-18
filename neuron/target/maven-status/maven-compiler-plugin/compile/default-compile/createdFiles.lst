@@ -1,3 +1,4 @@
 org/uth/neurons/Test1.class
 org/uth/neurons/currency/NeuronInput.class
+org/uth/neurons/PersistTest1.class
 org/uth/neurons/currency/NeuronOutput.class

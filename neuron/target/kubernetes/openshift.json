@@ -4,8 +4,8 @@
   "metadata" : {
     "annotations" : {
       "app.openshift.io/vcs-url" : "<<unknown>>",
-      "app.quarkus.io/commit-id" : "f731f2ad3177b14e2a0e9d5c13d12763960dab90",
-      "app.quarkus.io/build-timestamp" : "2022-10-03 - 17:07:15 +0000"
+      "app.quarkus.io/commit-id" : "b5a2a9b14efb2c6228290cfc11812f28c1a7903e",
+      "app.quarkus.io/build-timestamp" : "2023-04-18 - 12:56:17 +0000"
     },
     "labels" : {
       "app.kubernetes.io/name" : "neuron",
@@ -32,8 +32,8 @@
   "metadata" : {
     "annotations" : {
       "app.openshift.io/vcs-url" : "<<unknown>>",
-      "app.quarkus.io/commit-id" : "f731f2ad3177b14e2a0e9d5c13d12763960dab90",
-      "app.quarkus.io/build-timestamp" : "2022-10-03 - 17:07:15 +0000"
+      "app.quarkus.io/commit-id" : "b5a2a9b14efb2c6228290cfc11812f28c1a7903e",
+      "app.quarkus.io/build-timestamp" : "2023-04-18 - 12:56:17 +0000"
     },
     "labels" : {
       "app.kubernetes.io/name" : "neuron",
@@ -62,8 +62,8 @@
   "metadata" : {
     "annotations" : {
       "app.openshift.io/vcs-url" : "<<unknown>>",
-      "app.quarkus.io/commit-id" : "f731f2ad3177b14e2a0e9d5c13d12763960dab90",
-      "app.quarkus.io/build-timestamp" : "2022-10-03 - 17:07:15 +0000"
+      "app.quarkus.io/commit-id" : "b5a2a9b14efb2c6228290cfc11812f28c1a7903e",
+      "app.quarkus.io/build-timestamp" : "2023-04-18 - 12:56:17 +0000"
     },
     "labels" : {
       "app.kubernetes.io/name" : "neuron",
@@ -97,8 +97,8 @@
   "metadata" : {
     "annotations" : {
       "app.openshift.io/vcs-url" : "<<unknown>>",
-      "app.quarkus.io/commit-id" : "f731f2ad3177b14e2a0e9d5c13d12763960dab90",
-      "app.quarkus.io/build-timestamp" : "2022-10-03 - 17:07:15 +0000"
+      "app.quarkus.io/commit-id" : "b5a2a9b14efb2c6228290cfc11812f28c1a7903e",
+      "app.quarkus.io/build-timestamp" : "2023-04-18 - 12:56:17 +0000"
     },
     "labels" : {
       "app.kubernetes.io/name" : "neuron",
@@ -110,20 +110,20 @@
   "spec" : {
     "replicas" : 1,
     "selector" : {
-      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
-      "app.kubernetes.io/name" : "neuron"
+      "app.kubernetes.io/name" : "neuron",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT"
     },
     "template" : {
       "metadata" : {
         "annotations" : {
           "app.openshift.io/vcs-url" : "<<unknown>>",
-          "app.quarkus.io/commit-id" : "f731f2ad3177b14e2a0e9d5c13d12763960dab90",
-          "app.quarkus.io/build-timestamp" : "2022-10-03 - 17:07:15 +0000"
+          "app.quarkus.io/commit-id" : "b5a2a9b14efb2c6228290cfc11812f28c1a7903e",
+          "app.quarkus.io/build-timestamp" : "2023-04-18 - 12:56:17 +0000"
         },
         "labels" : {
           "app.openshift.io/runtime" : "quarkus",
-          "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
-          "app.kubernetes.io/name" : "neuron"
+          "app.kubernetes.io/name" : "neuron",
+          "app.kubernetes.io/version" : "1.0.0-SNAPSHOT"
         }
       },
       "spec" : {
