@@ -41,7 +41,7 @@ public class PersistTest1
     {
       FileOutputStream outputStream = new FileOutputStream(_targetFile, true);
 
-      String dataToAppend = "/r/n(" + _start + ") " + cloudEvent.type() + " " + cloudEvent.toString();
+      String dataToAppend = "\r\n(" + _start + ") " + cloudEvent.type() + " " + cloudEvent.toString();
       byte[] dataInBytes = dataToAppend.getBytes();
       outputStream.write(dataInBytes);
       outputStream.close();
