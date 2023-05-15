@@ -9,18 +9,18 @@ import io.smallrye.mutiny.subscription.UniEmitter;
 import io.vertx.core.Vertx;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import org.json.simple.*;
-import org.json.simple.parser.*;
+//import org.json.simple.*;
+//import org.json.simple.parser.*;
 
 import javax.inject.Inject;
-import java.net.*;
-import java.util.*;
+//import java.net.*;
+//import java.util.*;
 
 import org.uth.neurons.currency.*;
 
-public class Test1
+public class Neuron
 {
-  private long _start = System.currentTimeMillis();
+  private final long _start = System.currentTimeMillis();
 
   @Inject
   Vertx vertx;

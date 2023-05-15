@@ -3,8 +3,8 @@
   "kind" : "Service",
   "metadata" : {
     "annotations" : {
-      "app.quarkus.io/commit-id" : "b5a2a9b14efb2c6228290cfc11812f28c1a7903e",
-      "app.quarkus.io/build-timestamp" : "2023-04-18 - 12:56:17 +0000"
+      "app.quarkus.io/commit-id" : "859c9850cb36cdc8e9684ac6c63f112c6900e9fc",
+      "app.quarkus.io/build-timestamp" : "2023-05-10 - 14:37:03 +0000"
     },
     "labels" : {
       "app.kubernetes.io/name" : "neuron",
@@ -29,12 +29,12 @@
   "kind" : "Deployment",
   "metadata" : {
     "annotations" : {
-      "app.quarkus.io/commit-id" : "b5a2a9b14efb2c6228290cfc11812f28c1a7903e",
-      "app.quarkus.io/build-timestamp" : "2023-04-18 - 12:56:17 +0000"
+      "app.quarkus.io/commit-id" : "859c9850cb36cdc8e9684ac6c63f112c6900e9fc",
+      "app.quarkus.io/build-timestamp" : "2023-05-10 - 14:37:03 +0000"
     },
     "labels" : {
-      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
-      "app.kubernetes.io/name" : "neuron"
+      "app.kubernetes.io/name" : "neuron",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT"
     },
     "name" : "neuron"
   },
@@ -42,19 +42,19 @@
     "replicas" : 1,
     "selector" : {
       "matchLabels" : {
-        "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
-        "app.kubernetes.io/name" : "neuron"
+        "app.kubernetes.io/name" : "neuron",
+        "app.kubernetes.io/version" : "1.0.0-SNAPSHOT"
       }
     },
     "template" : {
       "metadata" : {
         "annotations" : {
-          "app.quarkus.io/commit-id" : "b5a2a9b14efb2c6228290cfc11812f28c1a7903e",
-          "app.quarkus.io/build-timestamp" : "2023-04-18 - 12:56:17 +0000"
+          "app.quarkus.io/commit-id" : "859c9850cb36cdc8e9684ac6c63f112c6900e9fc",
+          "app.quarkus.io/build-timestamp" : "2023-05-10 - 14:37:03 +0000"
         },
         "labels" : {
-          "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
-          "app.kubernetes.io/name" : "neuron"
+          "app.kubernetes.io/name" : "neuron",
+          "app.kubernetes.io/version" : "1.0.0-SNAPSHOT"
         }
       },
       "spec" : {

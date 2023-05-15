@@ -1,95 +1,7 @@
 ﻿apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  annotations:
-    app.openshift.io/route-disabled: 'false'
-    app.openshift.io/vcs-ref: ''
-    app.openshift.io/vcs-uri: 'https://github.com/utherp0/kneural'
-    image.openshift.io/triggers: >-
-      [{"from":{"kind":"ImageStreamTag","name":"kneural:latest","namespace":"serverlessdemo1"},"fieldPath":"spec.template.spec.containers[?(@.name==\"kneural\")].image","pause":"false"}]
-    openshift.io/generated-by: OpenShiftWebConsole
-    serving.knative.dev/creator: admin
-    serving.knative.dev/lastModifier: admin
-  resourceVersion: '194689'
   name: kneural
-  uid: ab20916d-5e26-464f-837b-196329e46318
-  creationTimestamp: '2023-04-18T13:05:23Z'
-  generation: 5
-  managedFields:
-    - apiVersion: serving.knative.dev/v1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          'f:template':
-            'f:metadata':
-              'f:annotations':
-                'f:client.knative.dev/updateTimestamp': {}
-      manager: kn
-      operation: Update
-      time: '2023-04-18T13:27:42Z'
-    - apiVersion: serving.knative.dev/v1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:app.openshift.io/route-disabled': {}
-            'f:app.openshift.io/vcs-ref': {}
-            'f:app.openshift.io/vcs-uri': {}
-            'f:image.openshift.io/triggers': {}
-            'f:openshift.io/generated-by': {}
-          'f:labels':
-            .: {}
-            'f:app.kubernetes.io/component': {}
-            'f:app.kubernetes.io/instance': {}
-            'f:app.kubernetes.io/name': {}
-            'f:app.kubernetes.io/part-of': {}
-            'f:app.openshift.io/runtime': {}
-            'f:app.openshift.io/runtime-version': {}
-        'f:spec':
-          .: {}
-          'f:template':
-            .: {}
-            'f:metadata':
-              .: {}
-              'f:annotations':
-                .: {}
-                'f:autoscaling.knative.dev/target': {}
-                'f:autoscaling.knative.dev/targetUtilizationPercentage': {}
-                'f:autoscaling.knative.dev/window': {}
-              'f:labels':
-                .: {}
-                'f:app.kubernetes.io/component': {}
-                'f:app.kubernetes.io/instance': {}
-                'f:app.kubernetes.io/part-of': {}
-                'f:app.openshift.io/runtime': {}
-                'f:app.openshift.io/runtime-version': {}
-            'f:spec':
-              .: {}
-              'f:containers': {}
-              'f:volumes': {}
-      manager: Mozilla
-      operation: Update
-      time: '2023-04-18T13:53:25Z'
-    - apiVersion: serving.knative.dev/v1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:status':
-          .: {}
-          'f:address':
-            .: {}
-            'f:url': {}
-          'f:conditions': {}
-          'f:latestCreatedRevisionName': {}
-          'f:latestReadyRevisionName': {}
-          'f:observedGeneration': {}
-          'f:traffic': {}
-          'f:url': {}
-      manager: controller
-      operation: Update
-      subresource: status
-      time: '2023-04-18T13:53:46Z'
-  namespace: serverlessdemo1
   labels:
     app.kubernetes.io/component: kneural
     app.kubernetes.io/instance: kneural
@@ -104,8 +16,6 @@ spec:
         autoscaling.knative.dev/target: '100'
         autoscaling.knative.dev/targetUtilizationPercentage: '70'
         autoscaling.knative.dev/window: 60s
-        client.knative.dev/updateTimestamp: '2023-04-18T13:27:42Z'
-      creationTimestamp: null
       labels:
         app.kubernetes.io/component: kneural
         app.kubernetes.io/instance: kneural
@@ -121,7 +31,7 @@ spec:
             - name: NEURONID
               value: '000001'
           image: >-
-            image-registry.openshift-image-registry.svc:5000/serverlessdemo1/kneural
+            image-registry.openshift-image-registry.svc:5000/serverlessdemo/neuron:1.0.0-SNAPSHOT
           imagePullPolicy: Always
           name: kneural
           ports:
@@ -144,25 +54,3 @@ spec:
   traffic:
     - latestRevision: true
       percent: 100
-status:
-  address:
-    url: 'http://kneural.serverlessdemo1.svc.cluster.local'
-  conditions:
-    - lastTransitionTime: '2023-04-18T13:53:46Z'
-      status: 'True'
-      type: ConfigurationsReady
-    - lastTransitionTime: '2023-04-18T13:53:46Z'
-      status: 'True'
-      type: Ready
-    - lastTransitionTime: '2023-04-18T13:53:46Z'
-      status: 'True'
-      type: RoutesReady
-  latestCreatedRevisionName: kneural-00005
-  latestReadyRevisionName: kneural-00005
-  observedGeneration: 5
-  traffic:
-    - latestRevision: true
-      percent: 100
-      revisionName: kneural-00005
-  url: >-
-    https://kneural-serverlessdemo1.apps.cluster-h2hk9.h2hk9.sandbox2613.opentlc.com

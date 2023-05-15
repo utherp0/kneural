@@ -22,7 +22,7 @@ import org.uth.neurons.currency.*;
 
 public class PersistTest1
 {
-  private long _start = System.currentTimeMillis();
+  private final long _start = System.currentTimeMillis();
 
   // Use @ConfigProperty to inject ENVs here
   @ConfigProperty(name="TARGETFILE")
@@ -30,7 +30,7 @@ public class PersistTest1
 
   @Funq
   @CloudEventMapping(trigger = "persistRequest", responseSource = "PersistTest1", responseType = "persistResponse")
-  public CloudEvent<NeuronOutput> function( NeuronInput input, @Context CloudEvent<NeuronInput> cloudEvent )
+  public CloudEvent<NeuronOutput> functiontest( NeuronInput input, @Context CloudEvent<NeuronInput> cloudEvent )
   {
     //NeuronInput input = cloudEvent.data();
 

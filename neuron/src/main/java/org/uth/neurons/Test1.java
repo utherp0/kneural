@@ -28,7 +28,7 @@ public class Test1
   String _neuronID;
 
   @Funq
-  public CloudEvent<NeuronOutput> function( NeuronInput input, @Context CloudEvent<NeuronInput> cloudEvent )
+  public CloudEvent<NeuronOutput> function2( NeuronInput input, @Context CloudEvent<NeuronInput> cloudEvent )
   {
     //NeuronInput input = cloudEvent.data();
 

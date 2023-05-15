@@ -1,15 +1,12 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  annotations:
-    serving.knative.dev/creator: uther
-    serving.knative.dev/lastModifier: uther
   labels:
     boson.dev/function: 'true'
     boson.dev/runtime: quarkus
     function.knative.dev: 'true'
     function.knative.dev/runtime: quarkus
-  name: neuron02
+  name: neuron01
 spec:
   template:
     metadata:
@@ -23,7 +20,7 @@ spec:
                 http://watchman.endpoint
             - name: NEURONID
               value: "000002"
-          image: image-registry.openshift-image-registry.svc:5000/serverlessdemo/neuron:1.0.0-SNAPSHOT            
+          image: image-registry.openshift-image-registry.svc:5000/kneurondemo/neuron:1.0.0-SNAPSHOT            
           livenessProbe:
             httpGet:
               path: /health/liveness
