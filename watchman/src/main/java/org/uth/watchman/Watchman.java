@@ -32,7 +32,7 @@ public class Watchman
     {
       FileOutputStream outputStream = new FileOutputStream(_logFile, true);
 
-      String dataToAppend = "\r\n(" + System.currentTimeMillis() + " - UUID:" + uuid + " VALUE: " + value;
+      String dataToAppend = "\r\n(" + System.currentTimeMillis() + ") - UUID:" + uuid + " VALUE: " + value;
       byte[] dataInBytes = dataToAppend.getBytes();
       outputStream.write(dataInBytes);
       outputStream.close();
