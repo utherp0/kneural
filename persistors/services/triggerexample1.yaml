@@ -1,0 +1,15 @@
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: triggertest1
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: pevent1
+  subscriber:
+    ref:
+     apiVersion: serving.knative.dev/v1
+     kind: Service
+     name: persistor00001

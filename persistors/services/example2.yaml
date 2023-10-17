@@ -1,0 +1,54 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: kneuron00002
+  labels:
+    app.kubernetes.io/part-of: neuralnet1
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/target: '100'
+        autoscaling.knative.dev/targetUtilizationPercentage: '70'
+        autoscaling.knative.dev/window: 60s
+    spec:
+      containerConcurrency: 0
+      containers:
+        - env:
+            - name: CACHE_NAME
+              value: kneural1
+            - name: MEMORY_ID
+              value: '00002'
+            - name: GRIDCONNECT_EP
+              value: >-
+                https://gridconnect-serverlessdemo.apps.cluster-nx2vs.nx2vs.sandbox1571.opentlc.com/
+            - name: LOW_THRESHOLD
+              value: '10'
+            - name: HIGH_THRESHOLD
+              value: '100'
+            - name: LOW_EVENT
+              value: kneuronlow
+            - name: HIGH_EVENT
+              value: kneuronhigh
+            - name: INITIAL_STATE
+              value: '50'
+            - name: WATCHMAN_EP
+              value: >-
+                https://watchman-serverlessdemo.apps.cluster-nx2vs.nx2vs.sandbox1571.opentlc.com/
+          image: >-
+            quay.io/ilawson/kneuron:latest
+          imagePullPolicy: Always
+          name: kneuron00002
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          readinessProbe:
+            successThreshold: 1
+            tcpSocket:
+              port: 0
+          resources: {}
+      enableServiceLinks: false
+      timeoutSeconds: 300
+  traffic:
+    - latestRevision: true
+      percent: 100

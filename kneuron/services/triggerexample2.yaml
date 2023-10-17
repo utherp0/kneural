@@ -1,0 +1,15 @@
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: triggertest2
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: testevent2
+  subscriber:
+    ref:
+     apiVersion: serving.knative.dev/v1
+     kind: Service
+     name: kneuron00002

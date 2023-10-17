@@ -1,0 +1,1 @@
+kn service update kntest2 --env CACHE_NAME=test1 --env MEMORY_ID=00001 --env GRIDCONNECT_EP=testgrid --env LOW_THRESHOLD=20 --env HIGH_THRESHOLD=100 --env LOW_EVENT=loweventtest --env HIGH_EVENT=higheventtest --env INITIAL_STATE=50 --env WATCHMAN_EP=testwatchman

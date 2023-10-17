@@ -48,7 +48,7 @@ else
 endif
  * @author uther
  */
-public class Kneuron1
+public class KNPersistor
 {
   @ConfigProperty(name="CACHE_NAME")
   String _cacheName;
@@ -88,6 +88,7 @@ public class Kneuron1
     KneuronOutput output = new KneuronOutput();
 
     // Step 1: get memory state from target cache
+    
     
     // Step 2: perform logic check to determine new state and output event (if any)
     String targetEvent = null;

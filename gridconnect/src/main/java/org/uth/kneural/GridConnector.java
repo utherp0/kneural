@@ -43,6 +43,7 @@ public class GridConnector
 
       getConnection.setRequestMethod( "GET" );
       getConnection.setRequestProperty( "Content-Type", "application/json" );
+      getConnection.setRequestProperty("Key-Content-Type", "text/plain");
 
       getConnection.setDoOutput(true);
 

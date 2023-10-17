@@ -21,3 +21,8 @@ curl -X POST -H 'Content-type: text/plain' -d 'world' http://kneuralgrid:11222/r
 curl -X GET http://kneuralgrid:11222/rest/v2/caches/neuralnet/hello
 
 curl --digest -k -L -D - "https://infinispan:11222/rest/v2/cache/neuralcache" --header "Content-Type: application/json" -u "developer:NQFcLwsEVBUWFtLK" --verbose
+
+(Example data process)
+(Create cache) https://gridconnect-serverlessdemo.apps.cluster-nx2vs.nx2vs.sandbox1571.opentlc.com/grid/create?cache=mytestcache
+(Add data) https://gridconnect-serverlessdemo.apps.cluster-nx2vs.nx2vs.sandbox1571.opentlc.com/grid/add?cache=mytestcache&key=testkey1&value=testvalue1
+(Fetch data) https://gridconnect-serverlessdemo.apps.cluster-nx2vs.nx2vs.sandbox1571.opentlc.com/grid/add?cache=mytestcache&key=testkey1&value=testvalue1
