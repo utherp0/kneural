@@ -142,6 +142,7 @@ public class GridConnector
 
       postConnection.setRequestMethod( "POST" );
       postConnection.setRequestProperty( "Content-Type", "application/json" );
+      postConnection.setRequestProperty("Key-Content-Type", "text/plain");
 
       postConnection.setDoOutput(true);
 

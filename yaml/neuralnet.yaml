@@ -1,0 +1,16 @@
+apiVersion: infinispan.org/v2alpha1
+kind: Cache
+metadata:
+  name: neuralnet
+spec:
+  clusterName: kneuralgrid
+  name: neuralnet1
+  template: |
+  distributedCache:
+    mode: "SYNC"
+    owners: "2"
+    statistics: "true"
+    encoding:
+      mediaType: "text/plain"
+    persistence:
+      fileStore: ~
